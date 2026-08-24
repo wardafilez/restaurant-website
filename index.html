@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eden Rose Restaurant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fcf8f2;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .brand-name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #800020;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #800020;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(128, 0, 32, 0.05), rgba(128, 0, 32, 0.05)), #f3e9dc;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: #800020;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            background-color: #800020;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #590016;
+        }
+
+        .menu-section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .menu-section h2 {
+            font-size: 32px;
+            color: #800020;
+            margin-bottom: 40px;
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .food-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .price {
+            color: #800020;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" class="logo-img">
+            <span class="brand-name">The Eden Rose</span>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Delicious Food Awaits You</h1>
+        <p>Experience the authentic taste of premium Pakistani cuisine.</p>
+        <a href="#" class="btn">View Menu</a>
+    </section>
+
+    <section class="menu-section">
+        <h2>Our Best Sellers</h2>
+        <div class="menu-container">
+            
+            <div class="food-card">
+                <img src="images/biryani.png" class="food-img">
+                <h3>Chicken Biryani</h3>
+                <p class="price">Rs. 380</p>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
