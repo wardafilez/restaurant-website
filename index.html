@@ -108,15 +108,15 @@
             background-color: #590016;
         }
 
-        /* --- POP-UP MENU SECTION STYLES --- */
+        /* --- POP-UP MENU OVERLAY --- */
         .menu-modal {
-            display: none; /* Shuru me menu chupa rahega */
+            display: none; 
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Background dhundla karne k liye */
+            background-color: rgba(0, 0, 0, 0.6); 
             justify-content: center;
             align-items: center;
             z-index: 1000;
@@ -126,8 +126,10 @@
             background-color: #fcf8f2;
             padding: 30px;
             border-radius: 15px;
-            max-width: 500px;
+            max-width: 600px;
             width: 90%;
+            max-height: 85vh; 
+            overflow-y: auto;
             text-align: center;
             position: relative;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -151,16 +153,61 @@
             padding-bottom: 10px;
         }
 
-        .menu-items {
+        .menu-category-title {
+            color: #590016;
+            font-size: 20px;
+            font-weight: bold;
             text-align: left;
-            margin-top: 15px;
+            margin: 20px 0 10px 0;
+            padding-left: 5px;
+            border-left: 4px solid #800020;
         }
 
-        .menu-item {
+        .menu-grid {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .food-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .food-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .food-details {
+            flex-grow: 1;
+        }
+
+        .food-name {
             font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .food-desc {
+            font-size: 13px;
+            color: #777;
+            margin-top: 2px;
+        }
+
+        .food-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #800020;
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -173,7 +220,6 @@
         </div>
         <nav>
             <a href="index.html">Home</a>
-            <!-- Tareeqa 1: Navbar ka menu link jis pr click krne se pop-up khulega -->
             <a id="nav-menu-btn">Menu</a>
             <a href="contact.html">Contact</a>
         </nav>
@@ -186,71 +232,91 @@
                 <h1>The Eden Rose</h1>
                 <h2 style="font-size: 28px; color: #800020; font-weight: normal; margin-bottom: 15px;">Delicious Food Awaits You</h2>
                 <p>Experience the authentic taste of premium Pakistani cuisine.</p>
-                <!-- Tareeqa 2: Center (Mid) waala button jis pr click krne se bhi pop-up khulega -->
                 <button id="mid-menu-btn" class="btn">View Menu</button>
             </div>
         </div>
     </section>
 
-    <!-- --- POP-UP MENU BOX (MODAL) --- -->
+    <!-- --- POP-UP MENU MODAL --- -->
     <div id="menuModal" class="menu-modal">
         <div class="menu-content">
             <span id="closeMenuBtn" class="close-btn">&times;</span>
             <h2 class="menu-title">Our Premium Menu</h2>
             
-            <div class="menu-items">
-                <div class="menu-item">
-                    <span>Chicken Biryani</span>
-                    <strong>Rs. 450</strong>
+            <div class="menu-grid">
+                
+                <!-- === MAIN COURSES === -->
+                <div class="menu-category-title">Main Course</div>
+
+                <div class="food-card">
+                    <img src="images/biryani.png" class="food-img" alt="Biryani">
+                    <div class="food-details">
+                        <div class="food-name">Special Chicken Biryani</div>
+                        <div class="food-desc">Fragrant basmati rice cooked with juicy chicken and spices.</div>
+                    </div>
+                    <div class="food-price">Rs. 450</div>
                 </div>
-                <div class="menu-item">
-                    <span>Mutton Karahi</span>
-                    <strong>Rs. 1200</strong>
+
+                <div class="food-card">
+                    <img src="images/kabab.png" class="food-img" alt="Kabab">
+                    <div class="food-details">
+                        <div class="food-name">Beef Seekh Kabab</div>
+                        <div class="food-desc">Charcoal-grilled tender minced beef skewers.</div>
+                    </div>
+                    <div class="food-price">Rs. 350</div>
                 </div>
-                <div class="menu-item">
-                    <span>Seekh Kabab</span>
-                    <strong>Rs. 350</strong>
+
+                <div class="food-card">
+                    <img src="images/haleem.png" class="food-img" alt="Haleem">
+                    <div class="food-details">
+                        <div class="food-name">Shahi Haleem</div>
+                        <div class="food-desc">Slow-cooked rich lentils and shredded meat blend.</div>
+                    </div>
+                    <div class="food-price">Rs. 400</div>
                 </div>
-                <div class="menu-item">
-                    <span>Garlic Naan</span>
-                    <strong>Rs. 60</strong>
+
+                <div class="food-card">
+                    <img src="images/nihari.png" class="food-img" alt="Nihari">
+                    <div class="food-details">
+                        <div class="food-name">Special Nihari</div>
+                        <div class="food-desc">Slow-cooked thick shank meat stew with ginger and lemon.</div>
+                    </div>
+                    <div class="food-price">Rs. 600</div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- --- JAVASCRIPT CODE --- -->
-    <script>
-        // HTML elements ko select karna
-        const navMenuBtn = document.getElementById('nav-menu-btn');
-        const midMenuBtn = document.getElementById('mid-menu-btn');
-        const menuModal = document.getElementById('menuModal');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
+                <!-- === DESSERTS & SHAKES (Using biryani image for trial) === -->
+                <div class="menu-category-title">Desserts & Shakes</div>
 
-        // Menu kholne ka function
-        function openMenu() {
-            menuModal.style.display = 'flex';
-        }
+                <div class="food-card">
+                    <img src="images/rasmalai.png" class="food-img" alt="Ras Malai">
+                    <div class="food-details">
+                        <div class="food-name">Ras Malai</div>
+                        <div class="food-desc">Sweet milk patties flavored with cardamom and pistachios.</div>
+                    </div>
+                    <div class="food-price">Rs. 330</div>
+                </div>
 
-        // Menu band karne ka function
-        function closeMenu() {
-            menuModal.style.display = 'none';
-        }
+                <div class="food-card">
+                    <img src="images/biryani.png" class="food-img" alt="Ice Cream">
+                    <div class="food-details">
+                        <div class="food-name">Ice Cream (1 Scoop)</div>
+                        <div class="food-desc">Delicious chilled single scoop of your choice.</div>
+                    </div>
+                    <div class="food-price">Rs. 160</div>
+                </div>
 
-        // Dono buttons par click event lagana (Menu kholne k liye)
-        navMenuBtn.addEventListener('click', openMenu);
-        midMenuBtn.addEventListener('click', openMenu);
+                <div class="food-card">
+                    <img src="images/biryani.png" class="food-img" alt="Ice Cream">
+                    <div class="food-details">
+                        <div class="food-name">Ice Cream (2 Scoops)</div>
+                        <div class="food-desc">Double scoop of rich creamy flavor ice cream.</div>
+                    </div>
+                    <div class="food-price">Rs. 260</div>
+                </div>
 
-        // Close button par click event lagana (Menu band krne k liye)
-        closeMenuBtn.addEventListener('click', closeMenu);
+                <div class="food-card">
+                    <img src="images/biryani.png" class="food-img" alt="Ice Cream">
+                    <div class="food-details">
+                        <div class="food-name">Ice Cream (3 Scoops)</div>
 
-        // Agar user menu se baher kali jagah par click kare toh bhi menu band ho jaye
-        window.addEventListener('click', function(event) {
-            if (event.target === menuModal) {
-                closeMenu();
-            }
-        });
-    </script>
-
-</body>
-</html>
+                    
