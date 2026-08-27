@@ -317,5 +317,24 @@
                     <img src="images/biryani.png" class="food-img" alt="Ice Cream">
                     <div class="food-details">
                         <div class="food-name">Ice Cream (3 Scoops)</div>
+                        <script>
+    const menuBtn = document.getElementById("nav-menu-btn");
+    const menuModal = document.getElementById("menuModal");
+    const closeMenuBtn = document.getElementById("closeMenuBtn");
+
+    menuBtn.addEventListener("click", function () {
+        menuModal.style.display = "flex";
+    });
+
+    closeMenuBtn.addEventListener("click", function () {
+        menuModal.style.display = "none";
+    });
+
+    menuModal.addEventListener("click", function (event) {
+        if (event.target === menuModal) {
+            menuModal.style.display = "none";
+        }
+    });
+                        </script>
 
                     
