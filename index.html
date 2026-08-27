@@ -429,30 +429,34 @@
         const closeContactBtn = document.getElementById("closeContactBtn");
 
         // Menu Open/Close
-        menuBtn.addEventListener("click", function () {
-            menuModal.style.display = "flex";
-        });
-        closeMenuBtn.addEventListener("click", function () {
-            menuModal.style.display = "none";
-        });
-
-        // Contact Open/Close
-        contactBtn.addEventListener("click", function () {
-            contactModal.style.display = "flex";
-        });
-        closeContactBtn.addEventListener("click", function () {
-            contactModal.style.display = "none";
-        });
-
-        // Close when clicking outside content box
-        window.addEventListener("click", function (event) {
-            if (event.target === menuModal) {
+        if(menuBtn && menuModal && closeMenuBtn) {
+            menuBtn.onclick = function() {
+                menuModal.style.display = "flex";
+            }
+            closeMenuBtn.onclick = function() {
                 menuModal.style.display = "none";
             }
-            if (event.target === contactModal) {
+        }
+
+        // Contact Open/Close
+        if(contactBtn && contactModal && closeContactBtn) {
+            contactBtn.onclick = function() {
+                contactModal.style.display = "flex";
+            }
+            closeContactBtn.onclick = function() {
                 contactModal.style.display = "none";
             }
-        });
+        }
+
+        // Close when clicking outside content box
+        window.onclick = function(event) {
+            if (event.target == menuModal) {
+                menuModal.style.display = "none";
+            }
+            if (event.target == contactModal) {
+                contactModal.style.display = "none";
+            }
+        }
     </script>
                 
 </body>
