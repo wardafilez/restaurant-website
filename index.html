@@ -398,26 +398,62 @@
     </div>
     <div class="food-price">Rs. 400</div>
 </div>
-                
-<script>
-    const menuBtn = document.getElementById("nav-menu-btn");
-    const menuModal = document.getElementById("menuModal");
-    const closeMenuBtn = document.getElementById("closeMenuBtn");
+                    <!-- --- CONTACT POP-UP MODAL --- -->
+    <div id="contactModal" class="menu-modal">
+        <div class="menu-content">
+            <span id="closeContactBtn" class="close-btn">&times;</span>
+            <h2 class="menu-title">Contact Us</h2>
+            <div class="contact">
+                <div class="contact-info">
+                    <div>📍 Daska, Pakistan</div>
+                    <div>📞 +92 300 1234567</div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+                    <script>
+        // Menu Elements
+        const menuBtn = document.getElementById("nav-menu-btn");
+        const menuModal = document.getElementById("menuModal");
+        const closeMenuBtn = document.getElementById("closeMenuBtn");
 
-    menuBtn.addEventListener("click", function () {
-        menuModal.style.display = "flex";
-    });
+        // Contact Elements
+        const contactBtn = document.getElementById("nav-contact-btn");
+        const contactModal = document.getElementById("contactModal");
+        const closeContactBtn = document.getElementById("closeContactBtn");
 
-    closeMenuBtn.addEventListener("click", function () {
-        menuModal.style.display = "none";
-    });
-
-    menuModal.addEventListener("click", function (event) {
-        if (event.target === menuModal) {
+        // Menu Open/Close
+        menuBtn.addEventListener("click", function () {
+            menuModal.style.display = "flex";
+        });
+        closeMenuBtn.addEventListener("click", function () {
             menuModal.style.display = "none";
-        }
-    });
-</script>
+        });
 
+        // Contact Open/Close
+        contactBtn.addEventListener("click", function () {
+            contactModal.style.display = "flex";
+        });
+        closeContactBtn.addEventListener("click", function () {
+            contactModal.style.display = "none";
+        });
+
+        // Close when clicking outside content box
+        window.addEventListener("click", function (event) {
+            if (event.target === menuModal) {
+                menuModal.style.display = "none";
+            }
+            if (event.target === contactModal) {
+                contactModal.style.display = "none";
+            }
+        });
+    </script>
+                
 </body>
 </html>
