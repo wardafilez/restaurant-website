@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - The Eden Rose</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f3e9dc; /* Aapka pasandida color */
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .brand-name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #800020;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #800020 !important;
+            background-color: #f3e9dc;
+            padding: 8px 20px;
+            margin-left: 15px;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: background 0.3s, transform 0.2s;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #590016;
+            color: white !important;
+            transform: scale(1.05);
+        }
+
+        /* --- MENU SECTION STYLE --- */
+        .menu-page-section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .menu-page-title {
+            color: #800020;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .menu-page-subtitle {
+            color: #800020;
+            font-size: 16px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .menu-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .category-title {
+            color: #590016;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 30px 0 15px 0;
+            padding-left: 10px;
+            border-left: 5px solid #800020;
+        }
+
+        .menu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .food-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .food-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .food-details {
+            flex-grow: 1;
+        }
+
+        .food-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .food-desc {
+            font-size: 14px;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        .food-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #800020;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" class="logo-img">
+            <span class="brand-name">The Eden Rose</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="menu.html">Menu</a>
+        </nav>
+    </header>
+
+    <section class="menu-page-section">
+        <h1 class="menu-page-title">Our Premium Menu</h1>
+        <p class="menu-page-subtitle">Delicious & traditional Pakistani cuisine made fresh for you.</p>
+
+        <div class="menu-container">
+            
+            <!-- Category 1 -->
+            <div class="category-title">Main Course</div>
+            <div class="menu-grid">
+                
+                <div class="food-card">
+                    <img src="images/logo.png" class="food-img">
+                    <div class="food-details">
+                        <div class="food-name">Special Chicken Karahi</div>
+                        <div class="food-desc">Aromatic chicken cooked with fresh tomatoes, green chilies, and blends of spices.</div>
+                    </div>
+                    <div class="food-price">Rs. 1,200</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/logo.png" class="food-img">
+                    <div class="food-details">
+                        <div class="food-name">Mutton Biryani</div>
+                        <div class="food-desc">Basmati rice layered with tender mutton meat and traditional spices.</div>
+                    </div>
+                    <div class="food-price">Rs. 1,500</div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
