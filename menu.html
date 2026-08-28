@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: #f3e9dc; /* Aapka pasandida color */
+            background-color: #f3e9dc;
             color: #333;
         }
 
@@ -99,9 +99,16 @@
         }
 
         .menu-grid {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 15px;
+        }
+
+        @media (min-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
         }
 
         .food-card {
@@ -112,6 +119,11 @@
             padding: 15px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+        }
+
+        .food-card:hover {
+            transform: scale(1.02);
         }
 
         .food-img {
@@ -126,19 +138,19 @@
         }
 
         .food-name {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             color: #333;
         }
 
         .food-desc {
-            font-size: 14px;
+            font-size: 13px;
             color: #777;
             margin-top: 4px;
         }
 
         .food-price {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             color: #800020;
             white-space: nowrap;
@@ -165,26 +177,119 @@
 
         <div class="menu-container">
             
-            <!-- Category 1 -->
-            <div class="category-title">Main Course</div>
+            <!-- === DESI FOOD === -->
+            <div class="category-title">Desi Food</div>
             <div class="menu-grid">
                 
                 <div class="food-card">
-                    <img src="images/logo.png" class="food-img">
+                    <img src="images/biryani.png" class="food-img">
                     <div class="food-details">
-                        <div class="food-name">Special Chicken Karahi</div>
-                        <div class="food-desc">Aromatic chicken cooked with fresh tomatoes, green chilies, and blends of spices.</div>
+                        <div class="food-name">Chicken Biryani</div>
+                        <div class="food-desc">Aromatic Basmati rice layered with juicy chicken and secret spices.</div>
                     </div>
-                    <div class="food-price">Rs. 1,200</div>
+                    <div class="food-price">Rs. 200</div>
                 </div>
 
                 <div class="food-card">
-                    <img src="images/logo.png" class="food-img">
+                    <img src="images/kabab.png" class="food-img">
                     <div class="food-details">
-                        <div class="food-name">Mutton Biryani</div>
-                        <div class="food-desc">Basmati rice layered with tender mutton meat and traditional spices.</div>
+                        <div class="food-name">Seekh Kabab</div>
+                        <div class="food-desc">Perfectly grilled minced meat skewers infused with fresh herbs.</div>
                     </div>
-                    <div class="food-price">Rs. 1,500</div>
+                    <div class="food-price">Rs. 450</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/haleem.png" class="food-img">
+                    <div class="food-details">
+                        <div class="food-name">Haleem</div>
+                        <div class="food-desc">Slow-cooked rich stew of grains, lentils, and tender shredded meat.</div>
+                    </div>
+                    <div class="food-price">Rs. 250</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/nihari.png" class="food-img">
+                    <div class="food-details">
+                        <div class="food-name">Nihari</div>
+                        <div class="food-desc">Traditional slow-cooked beef shank stew topped with ginger and lemon.</div>
+                    </div>
+                    <div class="food-price">Rs. 400</div>
+                </div>
+
+            </div>
+
+            <!-- === DESSERTS === -->
+            <div class="category-title">Desserts</div>
+            <div class="menu-grid">
+                
+                <div class="food-card">
+                    <img src="images/rasmalai.png" class="food-img">
+                    <div class="food-details">
+                        <div class="food-name">Ras Malai</div>
+                        <div class="food-desc">Soft cottage cheese patties soaked in sweet, saffron-infused milk.</div>
+                    </div>
+                    <div class="food-price">Rs. 150</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/ice.png" class="food-img">
+                    <div class="food-details">
+                        <div class="food-name">Ice Cream (1 Scoop)</div>
+                        <div class="food-desc">Single scoop of your favorite premium creamy flavor.</div>
+                    </div>
+                    <div class="food-price">Rs. 150</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/icecream.png" class="food-img">
+                    <div class="food-details">
+                        <div class="food-name">Ice Cream (2 Scoops)</div>
+                        <div class="food-desc">Double scoops of rich, cold ice cream bliss.</div>
+                    </div>
+                    <div class="food-price">Rs. 250</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/iceream.png" class="food-img">
+                    <div class="food-details">
+                        <div class="food-name">Ice Cream (3 Scoops)</div>
+                        <div class="food-desc">The ultimate triple scoop treat for ice cream lovers.</div>
+                    </div>
+                    <div class="food-price">Rs. 350</div>
+                </div>
+
+            </div>
+
+            <!-- === SHAKES === -->
+            <div class="category-title">Shakes</div>
+            <div class="menu-grid">
+                
+                <div class="food-card">
+                    <img src="images/coconutshake.png" class="food-img">
+                    <div class="food-details">
+                        <div class="food-name">Coconut Shake</div>
+                        <div class="food-desc">Refreshing and thick blend of sweet coconut milk and cream.</div>
+                    </div>
+                    <div class="food-price">Rs. 499</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/nutellashake.png" class="food-img">
+                    <div class="food-details">
+                        <div class="food-name">Nutella Shake</div>
+                        <div class="food-desc">Rich and heavenly milkshake blended heavily with real Nutella.</div>
+                    </div>
+                    <div class="food-price">Rs. 550</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/oreoshake.png" class="food-img">
+                    <div class="food-details">
+                        <div class="food-name">Oreo Shake</div>
+                        <div class="food-desc">Thick vanilla milkshake blended with crunchy Oreo cookie chunks.</div>
+                    </div>
+                    <div class="food-price">Rs. 400</div>
                 </div>
 
             </div>
