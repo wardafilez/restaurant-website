@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - The Eden Rose</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f3e9dc; /* Aapka pasandida background color */
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .brand-name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #800020;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #800020 !important;
+            background-color: #f3e9dc;
+            padding: 8px 20px;
+            margin-left: 15px;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: background 0.3s, transform 0.2s;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #590016;
+            color: white !important;
+            transform: scale(1.05);
+        }
+
+        /* --- GALLERY GRID STYLE --- */
+        .gallery-section {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .gallery-title {
+            color: #800020;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .gallery-subtitle {
+            color: #800020;
+            font-size: 16px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #800020;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" class="logo-img">
+            <span class="brand-name">The Eden Rose</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+    </header>
+
+    <section class="gallery-section">
+        <h1 class="gallery-title">Our Ambience & Interior</h1>
+        <p class="gallery-subtitle">Take a virtual tour of our beautiful restaurant sitting and fine dining decor.</p>
+
+        <div class="gallery-grid">
+            <!-- Image 1: Sitting Area -->
+            <div class="gallery-item">
+                <img src="images/interior1.jpg" class="gallery-img"> <!-- Yahan apni image ka sahi naam likhein -->
+                <div class="gallery-caption">Our Elegant Sitting Area</div>
+            </div>
+
+            <!-- Image 2: Ambience -->
+            <div class="gallery-item">
+                <img src="images/ambience.jpg" class="gallery-img">
+                <div class="gallery-caption">Cozy Ambient Lighting</div>
+            </div>
+
+            <!-- Image 3: Family Lounge -->
+            <div class="gallery-item">
+                <img src="images/lounge.jpg" class="gallery-img">
+                <div class="gallery-caption">Perfect Family Lounge</div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
