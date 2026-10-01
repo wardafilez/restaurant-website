@@ -1,1 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eden Rose Restaurant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background-color: #f3e9dc;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .brand-name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #800020;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #800020;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(128, 0, 32, 0.05), rgba(128, 0, 32, 0.05)), #f3e9dc;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo-center {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #800020;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            background-color: #800020;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background 0.3s;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #590016;
+        }
+                /* --- NAV BUTTONS STYLE --- */
+        nav a {
+            text-decoration: none;
+            color: #800020 !important;
+            background-color: #f3e9dc;
+            padding: 8px 20px;
+            margin-left: 15px;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: background 0.3s, transform 0.2s;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #590016;
+            transform: scale(1.05);
+        }
+                /* --- ABOUT TEXT SECTION STYLE --- */
+        .about-text-section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f3e9dc;
+        }
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .section-subtitle {
+            color: #800020;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .about-para {
+            font-size: 16px;
+            color: #800020;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+ /* --- CONTACT POP-UP OVERLAY --- */
+        .contact-modal {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); 
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .contact-modal-content {
+            background-color: #fcf8f2;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* --- POP-UP MENU OVERLAY --- */
+        .menu-modal {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); 
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .menu-content {
+            background-color: #fcf8f2;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 85vh; 
+            overflow-y: auto;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+               
+        .contact {
+            background-color: #f5e6d3;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .contact-form {
+            margin-top: 15px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background-color: #8b2e3b;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: bold;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #590016;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            color: #800020;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .menu-title {
+            color: #800020;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #800020;
+            padding-bottom: 10px;
+        }
+
+        .menu-category-title {
+            color: #590016;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+            margin: 20px 0 10px 0;
+            padding-left: 5px;
+            border-left: 4px solid #800020;
+        }
+
+        .menu-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .food-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .food-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .food-details {
+            flex-grow: 1;
+        }
+
+        .food-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .food-desc {
+            font-size: 13px;
+            color: #777;
+            margin-top: 2px;
+        }
+
+        .food-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #800020;
+            white-space: nowrap;
+        }
+                /* --- MOBILE RESPONSIVE CSS --- */
+        @media (max-width: 600px) {
+            .brand-name {
+                font-size: 18px;
+            }
+            nav a {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+            .nav-contact-btn {
+                padding: 5px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="images/logo.png" class="logo-img">
+            <span class="brand-name">The Eden Rose</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="menu.html">Menu</a>
+            <a <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="images/logo.png" class="logo-center">
+            <div>
+                <h1>The Eden Rose</h1>
+                <h2 style="font-size: 28px; color: #800020; font-weight: normal; margin-bottom: 15px;">Delicious Food Awaits You</h2>
+                <p>Experience the authentic taste of premium Pakistani cuisine.</p>
+            </div>
+        </div>
+    </section>
+        <!-- --- ABOUT US / MORE TEXT SECTION --- -->
+    <section class="about-text-section">
+        <div class="about-container">
+            <h3 class="section-subtitle">Our Story & Passion</h3>
+            <p class="about-para">
+                Welcome to <strong>The Eden Rose</strong>, where every dish tells a story of authentic flavors and premium quality. We bring you the true essence of traditional Pakistani cuisine, crafted carefully with handpicked fresh ingredients and rich, aromatic spices.
+            </p>
+            <p class="about-para">
+                Whether you are here for a cozy family dinner or celebrating a special moment, our elegant ambience and warm hospitality are designed to give you an unforgettable dining experience. Every bite is cooked to perfection by our expert chefs.
+            </p>
+        </div>
+    </section>
+    
+    <!-- --- POP-UP MENU MODAL --- -->
+    <div id="menuModal" class="menu-modal">
+        <div class="menu-content">
+            <span id="closeMenuBtn" class="close-btn">&times;</span>
+            <h2 class="menu-title">Our Premium Menu</h2>
+            
+            <div class="menu-grid">
+                
+                <!-- === MAIN COURSES === -->
+                <div class="menu-category-title">Main Course</div>
+
+                <div class="food-card">
+                    <img src="images/biryani.png" class="food-img" alt="Biryani">
+                    <div class="food-details">
+                        <div class="food-name">Special Chicken Biryani</div>
+                        <div class="food-desc">Fragrant basmati rice cooked with juicy chicken and spices.</div>
+                    </div>
+                    <div class="food-price">Rs. 450</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/kabab.png" class="food-img" alt="Kabab">
+                    <div class="food-details">
+                        <div class="food-name">Beef Seekh Kabab</div>
+                        <div class="food-desc">Charcoal-grilled tender minced beef skewers.</div>
+                    </div>
+                    <div class="food-price">Rs. 350</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/haleem.png" class="food-img" alt="Haleem">
+                    <div class="food-details">
+                        <div class="food-name">Shahi Haleem</div>
+                        <div class="food-desc">Slow-cooked rich lentils and shredded meat blend.</div>
+                    </div>
+                    <div class="food-price">Rs. 400</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/nihari.png" class="food-img" alt="Nihari">
+                    <div class="food-details">
+                        <div class="food-name">Special Nihari</div>
+                        <div class="food-desc">Slow-cooked thick shank meat stew with ginger and lemon.</div>
+                    </div>
+                    <div class="food-price">Rs. 600</div>
+                </div>
+
+                <!-- === DESSERTS & SHAKES === -->
+                <div class="menu-category-title">Desserts & Shakes</div>
+
+                <div class="food-card">
+                    <img src="images/rasmalai.png" class="food-img" alt="Ras Malai">
+                    <div class="food-details">
+                        <div class="food-name">Ras Malai</div>
+                        <div class="food-desc">Sweet milk patties flavored with cardamom and pistachios.</div>
+                    </div>
+                    <div class="food-price">Rs. 330</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/icecream.png" class="food-img" alt="Ice Cream">
+                    <div class="food-details">
+                        <div class="food-name">Ice Cream (1 Scoop)</div>
+                        <div class="food-desc">Delicious chilled single scoop of your choice.</div>
+                    </div>
+                    <div class="food-price">Rs. 160</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/ice.png" class="food-img" alt="Ice Cream">
+                    <div class="food-details">
+                        <div class="food-name">Ice Cream (2 Scoops)</div>
+                        <div class="food-desc">Double scoop of rich creamy flavor ice cream.</div>
+                    </div>
+                    <div class="food-price">Rs. 260</div>
+                </div>
+
+                <div class="food-card">
+                    <img src="images/iceream.png" class="food-img" alt="Ice Cream">
+                    <div class="food-details">
+                        <div class="food-name">Ice Cream (3 Scoops)</div>
+                        <div class="food-desc">Delicious creamy ice cream with three scoops.</div>
+
+                        
+<div class="food-price">Rs. 350</div>
+</div>
+
+                </div>
+                <div class="food-card">
+    <img src="images/coconutshake.png" class="food-img" alt="Coconut Shake">
+    <div class="food-details">
+        <div class="food-name">Coconut Shake</div>
+        <div class="food-desc">Creamy and refreshing coconut shake.</div>
+    </div>
+    <div class="food-price">Rs. 499</div>
+</div>
+
+<div class="food-card">
+    <img src="images/nutellashake.png" class="food-img" alt="Nutella Shake">
+    <div class="food-details">
+        <div class="food-name">Nutella Shake</div>
+        <div class="food-desc">Rich and creamy Nutella shake.</div>
+    </div>
+    <div class="food-price">Rs. 550</div>
+</div>
+
+<div class="food-card">
+    <img src="images/oreoshake.png" class="food-img" alt="Oreo Shake">
+    <div class="food-details">
+        <div class="food-name">Oreo Shake</div>
+        <div class="food-desc">Delicious creamy Oreo shake.</div>
+    </div>
+    <div class="food-price">Rs. 400</div>
+</div>
+                    <!-- --- CONTACT POP-UP MODAL --- -->
+<div id="contactModal" class="contact-modal">
+    <div class="contact-modal-content">
+            <span id="closeContactBtn" class="close-btn">&times;</span>
+            <h2 class="menu-title">Contact Us</h2>
+            <div class="contact">
+                <div class="contact-info">
+                    <div>📍 Daska, Pakistan</div>
+                    <div>📞 +92 300 1234567</div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+                    <script>
+        // Menu Elements
+        const menuBtn = document.getElementById("nav-menu-btn");
+        const menuModal = document.getElementById("menuModal");
+        const closeMenuBtn = document.getElementById("closeMenuBtn");
+
+        // Contact Elements
+        const contactBtn = document.getElementById("nav-contact-btn");
+        const contactModal = document.getElementById("contactModal");
+        const closeContactBtn = document.getElementById("closeContactBtn");
+
+        // Menu Open/Close
+        if(menuBtn && menuModal && closeMenuBtn) {
+            menuBtn.onclick = function() {
+                menuModal.style.display = "flex";
+            }
+            closeMenuBtn.onclick = function() {
+                menuModal.style.display = "none";
+            }
+        }
+
+        // Contact Open/Close
+        if(contactBtn && contactModal && closeContactBtn) {
+            contactBtn.onclick = function() {
+                contactModal.style.display = "flex";
+            }
+            closeContactBtn.onclick = function() {
+                contactModal.style.display = "none";
+            }
+        }
+
+        // Close when clicking outside content box
+        window.onclick = function(event) {
+            if (event.target == menuModal) {
+                menuModal.style.display = "none";
+            }
+            if (event.target == contactModal) {
+                contactModal.style.display = "none";
+            }
+        }
+    </script>
+                
+</body>
+</html>
+              
